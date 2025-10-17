@@ -30,5 +30,18 @@ document.addEventListener("DOMContentLoaded", function () {
                 currentPlayer = (currentPlayer === "X") ? "O" : "X";
             }
         });
+
+      // When the mouse enters the square
+        squares[i].addEventListener("mouseenter", function () {
+            // Only add hover effect if the square is empty
+            if (gameState[i] === null) {
+                squares[i].classList.add("hover");
+            }
+        });
+
+        // When the mouse leaves the square
+        squares[i].addEventListener("mouseleave", function () {
+            squares[i].classList.remove("hover");
+        });
     }
 });
