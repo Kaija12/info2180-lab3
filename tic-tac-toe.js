@@ -76,4 +76,27 @@ document.addEventListener("DOMContentLoaded", function () {
             squares[i].classList.remove("hover");
         });
     }
+
+    // Add click event handler for the New Game button
+    const newGameButton = document.getElementsByClassName("btn")[0];
+    newGameButton.addEventListener("click", function () {
+        // Reset the game state array
+        gameState = Array(9).fill(null);
+
+        // Reset the current player to X
+        currentPlayer = "X";
+
+        // Clear all squares
+        for (let i = 0; i < squares.length; i++) {
+            squares[i].textContent = "";
+            squares[i].classList.remove("X");
+            squares[i].classList.remove("O");
+        }
+
+        // Reset the status message
+        const statusDiv = document.getElementById("status");
+        statusDiv.textContent = "Move your mouse over a square and click to play an X or an O.";
+        statusDiv.classList.remove("you-won");
+    });
+    
 });
